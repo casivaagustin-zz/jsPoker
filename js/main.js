@@ -56,6 +56,7 @@
   
   Hand = function() {
     this.deck = new Deck();
+    this.holded = new Array(); //Index of card to hold
     
     this.deal = function() {
       this.cards = new Array();
@@ -65,35 +66,76 @@
     }
     
     this.redeal = function() {
-      
+      for(var i = 0; i < 5; i++) {
+        if (this.isHolded(i) < 0) {
+          this.cards[i] = this.deck.giveCard();
+        }
+      }
     }
     
+    /**
+     * Checks if the cardNumber is holded
+     * @returns -1 on false, >= 0 on true, the number is 
+     * the index of the value
+     */
+    this.isHolded = function(cardNumber) {
+      for(var i = 0; i < this.holded.length; i++) { 
+        if(this.holded[i] == cardNumber) {
+          return i;
+        }
+      }
+      return -1;
+    }
+    
+    /**
+     * Holds a card for the next deal
+     * @param cardNumber The index of the card to hold [0-4]
+     */
     this.hold = function(cardNumber) {
-      
+      if (cardNumber >= 0 && cardNumber < 5) {
+        this.holded.push(cardNumber);
+      }
     }
     
+    /**
+     * Removes the card from holdings a card for the next deal
+     * @param cardNumber The index of the card to hold [0-4]
+     */
     this.unhold = function(cardNumber) {
-      
+      if (cardNumber >= 0 && cardNumber < 5) {
+        for(var i = 0; i < this.holded.length; i++) {
+          if(this.holded[i] == cardNumber) {
+            this.holded.splice(i, 1);
+            return;
+          }
+        }
+      }
     }
     
     this.deal();
   }
   
   PokerGame = function() {
-    
+    this.phase = PokerGame.FIRST_DEAL;
+    this.hand = new Hand();
   }
   
-  PokerGame.prototype.starts = function() {
-    this.hand = new Hand();
-    console.log(this.hand.cards);
-  }
+  PokerGame.FIRST_DEAL = 'first_deal';
+  PokerGame.SECOND_DEAL = 'second_deal';
   
   PokerGame.prototype.deal = function() {
-    
+    if (this.phase == PokerGame.FIRST_DEAL) {
+      this.hand.deal();
+      this.phase = PokerGame.SECOND_DEAL;
+    } else {
+      this.hand.redeal();
+      this.checkGame();
+      this.phase = PokerGame.FIRST_DEAL;
+    }
   }
   
   PokerGame.prototype.checkGame = function() {
-    
+    console.log('I will check');
   }
   
 })(jQuery, document);

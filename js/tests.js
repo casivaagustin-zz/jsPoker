@@ -47,6 +47,58 @@ $(document).ready(function(){
     
   });
   
+  module('Hand');
+  
+  test('Testing Holds', function() {
+    var hand = new Hand();
+    hand.deal();
+    hand.hold(1);
+    hand.hold(4);
+    equal(hand.holded.length, 2, 'Two Cards Holded');
+    hand.unhold(1);
+    equal(hand.holded.length, 1, 'One Cards Holded');
+    equal(hand.isHolded(4), 0, 'Is holded' );
+    hand.hold(0);
+    var originalCards = hand.cards.slice();
+    hand.redeal();
+    equal(originalCards[3].isEqual(hand.cards[3]), false, 'Must Be Diferent');
+    equal(originalCards[4].isEqual(hand.cards[4]), true, 'Must Be Equal');
+  });
+  
+  test('Deals and redeal', function() {
+    var hand = new Hand();
+    hand.deal();
+    equal(hand.cards.length, 5, 'Five cards');
+    hand.hold(1);
+    hand.hold(4);
+    var originalCards = hand.cards.slice();
+    hand.redeal();
+    equal(hand.cards.length, 5, 'Five cards');
+    equal(originalCards[3].isEqual(hand.cards[3]), false, 'Must Be Diferent');
+    equal(originalCards[4].isEqual(hand.cards[4]), true, 'Must Be Equal');
+  });
+  
+  module('Poker');
+  
+  test('Game', function() {
+    var poker = new PokerGame();
+    equal(poker.phase, PokerGame.FIRST_DEAL, 'First Deal');
+    poker.deal();
+    poker.hand.hold(4);
+    var originalCards = poker.hand.cards.slice();
+    equal(poker.phase, PokerGame.SECOND_DEAL, 'Second Deal');
+    poker.deal();
+    equal(originalCards[4].isEqual(poker.hand.cards[4]), true, 'Must Be Equal');
+    equal(originalCards[3].isEqual(poker.hand.cards[3]), false, 'Must Be Diferent');
+    
+    originalCards = poker.hand.cards.slice();
+    /** Other Game **/
+    equal(poker.phase, PokerGame.FIRST_DEAL, 'First Deal Again');
+    poker.deal();
+    equal(originalCards[4].isEqual(poker.hand.cards[4]), false, 'Must Be Diferent');
+    equal(originalCards[3].isEqual(poker.hand.cards[3]), false, 'Must Be Diferent');
+  });
+  
 });
 
 
