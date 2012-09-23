@@ -1,15 +1,43 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" media="screen" href="js/qunit/qunit.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="js/test/qunit/qunit.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script type="text/javascript" src="js/qunit/qunit.js"></script>
+    <script type="text/javascript" src="js/core/Exceptions.js"></script>
+    <script type="text/javascript" src="js/core/Card.js"></script>
+    <script type="text/javascript" src="js/core/Deck.js"></script>
+    <script type="text/javascript" src="js/core/Hand.js"></script>
+    <script type="text/javascript" src="js/core/PokerGame.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/tests.js"></script>
+    <script type="text/javascript" src="js/test/qunit/qunit.js"></script>
+    <script type="text/javascript" src="js/test/tests.js"></script>
+    <link rel="stylesheet" media="all" href='css/poker.css' type='text/css' />
   </head>
   <body>
     <h1>Poker</h1>
     <div id="grid">
-
+      <div class="games">
+        <ul>
+		      <li class="game">
+            <span class="title"></span>
+            <span class="points"></span>
+		      </li>
+    	  <ul>
+      </div>
+      <div class="hand">
+        <div class="card" data="1">
+        </div>
+        <div class="card" data="2">
+        </div>
+        <div class="card" data="3">
+        </div>
+        <div class="card" data="4">
+        </div>
+        <div class="card" data="5">
+        </div>
+      </div>
+      <div class="actions">
+        <div class="buttom">Deal</div>
+      </div>
     </div>
     <h1 id="qunit-header">Poker Tests</h1>
     <h2 id="qunit-banner"></h2>
