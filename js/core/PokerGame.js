@@ -1,3 +1,4 @@
+
 PokerGame = function() {
   this.phase = PokerGame.FIRST_DEAL;
   this.hand = new Hand();
@@ -29,6 +30,7 @@ PokerGame.prototype.deal = function() {
   } else {
     this.hand.redeal();
     this.phase = PokerGame.FIRST_DEAL;
+    this.hand = new Hand(); //New Hand
   }
 }
   
@@ -102,8 +104,7 @@ PokerGame.prototype.getSequences = function() {
       }
     }
   }  
-  return sequences;
-  
+  return sequences; 
 }
   
 /**
@@ -111,12 +112,16 @@ PokerGame.prototype.getSequences = function() {
  * @returns String the Game Name or empty.
  */
 PokerGame.prototype.checkGame = function() {
+  var haveFlush = false;
+  var haveStraight = false;
+  var sequences = false;
+  
   if (this.phase !== PokerGame.SECOND_DEAL) {
     throw new PokerException('Must Deal Again');
   }
   
   this.hand.order();
-  var sequences = this.getSequences();
+  sequences = this.getSequences();
   
   if (sequences.length == 1) {
     switch(sequences[0]) {
@@ -136,8 +141,8 @@ PokerGame.prototype.checkGame = function() {
     return PokerGame.FULL_HOUSE;
   }
   
-  var haveFlush = this.isFlush();
-  var haveStraight = this.isStraight();
+  haveFlush = this.isFlush();
+  haveStraight = this.isStraight();
     
   if (haveFlush) {
     if (haveStraight) {

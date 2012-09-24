@@ -5,6 +5,8 @@ Hand = function() {
     
   this.deal = function() {
     this.cards = new Array();
+    this.holded = new Array(); //Index of card to hold
+    this.deck.recoverCards();
     for(var i = 0; i < 5; i++) {
       this.cards.push(this.deck.giveCard());
     }

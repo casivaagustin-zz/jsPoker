@@ -8,7 +8,7 @@ Deck = function () {
     return true;
   }
     
-  this.giveCard = function() {
+  this.giveCardImp = function() {
     var suite = Math.floor(Math.random() * 4);
     var value = Math.floor(Math.random() * (this.NumberOfCards - 1)) + 1; // 1 - 13
     var card = new Card(suite, value);
@@ -19,6 +19,19 @@ Deck = function () {
     return this.giveCard();
   }
     
+  this.giveCard = function() {
+    try { //Hack to avoid stack limit
+        return this.giveCardImp();
+    } catch(e) {
+        console.log(e);
+        return this.giveCard();
+    }
+  }
+
+  this.recoverCards = function () {
+      this.givenCards = new Array();
+  }
+
   this.suites = ['hearts', 'diamonds', 'clubs', 'spades'];
   this.NumberOfCards = 13;
   this.givenCards = new Array();

@@ -1,0 +1,277 @@
+
+.card {
+    background-image: url('../img/cards.png');
+    height: 95px;
+    width: 67px;
+    margin: 10px;
+}
+
+.joker {
+    background-position-x: 68px;
+    background-position-y: 96px;
+}
+
+.back {
+    background-position-x: 204px;
+    background-position-y: 96px;
+}
+
+.club1 {
+    background-position-x: 0px;
+    background-position-y: 0px;
+}
+
+.club2 {
+    background-position-x: -68px;
+    background-position-y: -96px;
+}
+
+.club3 {
+    background-position-x: 0px;
+    background-position-y: -96px;
+}
+
+.club4 {
+    background-position-x: 68px;
+    background-position-y: 0px;
+}
+
+.club5 {
+    background-position-x: 136px;
+    background-position-y: 0px;
+}
+
+.club6 {
+    background-position-x: 204px;
+    background-position-y: 0px;
+}
+
+.club7  {
+    background-position-x: 272px;
+    background-position-y: 0px;
+}
+
+.club8 {
+    background-position-x: 340px;
+    background-position-y: 0px;
+}
+
+.club9 {
+    background-position-x: 408px;
+    background-position-y: 0px;
+}
+
+.club10 {
+    background-position-x: 476px;
+    background-position-y: 0px;
+}
+
+.club11 {
+    background-position-x: 544px;
+    background-position-y: 0px;
+}
+
+.club12 {
+    background-position-x: 612px;
+    background-position-y: 0px;
+} 
+
+.club13 {
+    background-position-x: 680px;
+    background-position-y: 0px;
+} 
+
+.heart1 {
+    background-position-x: 340px;
+    background-position-y: 192px;
+}
+
+.heart13 {
+    background-position-x: 272px;
+    background-position-y: 192px;
+}
+
+.heart12 {
+    background-position-x: 204px;
+    background-position-y: 192px;
+}
+
+.heart11 {
+    background-position-x: 136px;
+    background-position-y: 192px;
+}
+
+.heart10 {
+    background-position-x: 68px;
+    background-position-y: 192px;
+}
+
+.heart2 {
+    background-position-x: 272px;
+    background-position-y: 96px;
+}
+
+.heart3 {
+    background-position-x: 340px;
+    background-position-y: 96px;
+}
+
+.heart4 {
+    background-position-x: 408px;
+    background-position-y: 96px;
+}
+
+.heart5 {
+    background-position-x: -272px;
+    background-position-y: 96px;
+}
+
+.heart6 {
+    background-position-x: -204px;
+    background-position-y: 96px;
+}
+
+.heart7  {
+    background-position-x: -136px;
+    background-position-y: 96px;
+}
+
+.heart8 {
+    background-position-x: -68px;
+    background-position-y: 96px;
+}
+
+.heart9 {
+    background-position-x: 0px;
+    background-position-y: 96px;
+}
+
+.spade1 {
+    background-position-x: -136px;
+    background-position-y: -96px;
+}
+
+.spade13 {
+    background-position-x: -204px;
+    background-position-y: -96px;
+}
+
+.spade12 {
+    background-position-x: -272px;
+    background-position-y: -96px;
+}
+
+.spade11 {
+        background-position-x: -340px;
+    background-position-y: -96px;
+}
+
+.spade10 {
+    background-position-x: -408px;
+    background-position-y: -96px;
+}
+
+.spade2 {
+    background-position-x: -204px;
+    background-position-y: -192px;
+}
+
+.spade3 {
+    background-position-x: -136px;
+    background-position-y: -192px;
+}
+
+.spade4 {
+    background-position-x: -68px;
+    background-position-y: -192px;
+}
+
+.spade5 {
+    background-position-x: 0px;
+    background-position-y: -192px;
+}
+
+.spade6 {
+    background-position-x: -680px;
+    background-position-y: -96px;
+}
+
+.spade7  {
+    background-position-x: -612px;
+    background-position-y: -96px;
+}
+
+.spade8 {
+    background-position-x: -544px;
+    background-position-y: -96px;
+}
+
+.spade9 {
+    background-position-x: -476px;
+    background-position-y: -96px;
+}
+
+.diamond1 {
+    background-position-x: -272px;
+    background-position-y: -192px;
+}
+
+.diamond13 {
+    background-position-x: -340px;
+    background-position-y: -192px;
+}
+
+.diamond12 {
+    background-position-x: -408px;
+    background-position-y: -192px;
+}
+
+.diamond11 {
+    background-position-x: -476px;
+    background-position-y: -192px;
+}
+
+.diamond10 {
+    background-position-x: -544px;
+    background-position-y: -192px;
+}
+
+.diamond2 {
+    background-position-x: -340px;
+    background-position-y: 192px;
+}
+
+.diamond3 {
+    background-position-x: -272px;
+    background-position-y: 192px;
+}
+
+.diamond4 {
+    background-position-x: -204px;
+    background-position-y: 192px;
+}
+
+.diamond5 {
+    background-position-x: -136px;
+    background-position-y: 192px;
+}
+
+.diamond6 {
+    background-position-x: -68px;
+    background-position-y: 192px;
+}
+
+.diamond7  {
+    background-position-x: 0px;
+    background-position-y: 192px;
+}
+
+.diamond8 {
+    background-position-x: -680px;
+    background-position-y: -192px;
+}
+
+.diamond9 {
+    background-position-x: -612px;
+    background-position-y: -192px;
+}
