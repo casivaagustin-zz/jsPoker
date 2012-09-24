@@ -9,10 +9,11 @@ body {
 
 .card {
     float: left;
+    border: 3px solid #0D5138;
 }
 
 .hand {
-    width: 435px;
+    width: 465px;
     height: 150px;
     clear: both;
     margin-left: auto;
@@ -42,4 +43,25 @@ body {
     text-transform: uppercase;
     font-weight: bold;
 }
-    
+   
+.header {
+    text-align: center;
+}
+
+.btn {
+    width: 100px;
+}
+
+.holded {
+    border: 3px solid red;
+}
+
+.board .title {
+    width: 230px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.board .points {
+    font-weight: bold;
+}

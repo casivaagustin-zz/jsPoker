@@ -1,10 +1,12 @@
 
 PokerGame = function() {
-  this.phase = PokerGame.FIRST_DEAL;
+  this.phase = PokerGame.START;
   this.hand = new Hand();
+  this.Player = Player;
 }
 
 /** States of the Game **/
+PokerGame.START = 'start';
 PokerGame.FIRST_DEAL = 'first_deal';
 PokerGame.SECOND_DEAL = 'second_deal';
   
@@ -19,18 +21,33 @@ PokerGame.THREE_OF_A_KIND = 'three of a kind';
 PokerGame.FOUR_OF_A_KIND = 'four of a kind';
 PokerGame.FULL_HOUSE = 'full house';
 PokerGame.EMPTY = 'empty';
-  
+
+//Prizes
+PokerGame.Prizes = {
+    'royale straight flush' : 500,
+    'straight flush' : 100,
+    'four of a kind' : 40,
+    'full house' : 10,
+    'flush' : 7,
+    'straight': 5,
+    'three of a kind' : 3,
+    'double pair' : 2,
+    'single pair' : 1
+}
+
 /**
  * Refresh the Cards
  */
 PokerGame.prototype.deal = function() {
-  if (this.phase == PokerGame.FIRST_DEAL) {
+  if (this.phase == PokerGame.START) {
     this.hand.deal();
+    this.phase = PokerGame.FIRST_DEAL;
+  } else if (this.phase == PokerGame.FIRST_DEAL) {
+    this.hand.redeal();
     this.phase = PokerGame.SECOND_DEAL;
   } else {
-    this.hand.redeal();
-    this.phase = PokerGame.FIRST_DEAL;
     this.hand = new Hand(); //New Hand
+    this.phase = PokerGame.START;
   }
 }
   

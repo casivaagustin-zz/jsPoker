@@ -2,6 +2,7 @@ Hand = function() {
   
   this.deck = new Deck();
   this.holded = new Array(); //Index of card to hold
+  this.cards = new Array();  //Cards in the Hand 
     
   this.deal = function() {
     this.cards = new Array();
@@ -31,7 +32,7 @@ Hand = function() {
         return i;
       }
     }
-    return -1;
+    return false;
   }
     
   /**
@@ -39,7 +40,7 @@ Hand = function() {
    * @param cardNumber The index of the card to hold [0-4]
    */
   this.hold = function(cardNumber) {
-    if (cardNumber >= 0 && cardNumber < 5) {
+    if (cardNumber >= 0 && cardNumber < 5 && typeof(this.cards[cardNumber]) !== 'undefined') {
       this.holded.push(cardNumber);
     }
   }
@@ -76,8 +77,7 @@ Hand = function() {
       this.cards.splice(current_index, 1);
       ordered.push(minimun);
     }
-    this.cards = ordered;
+    this.cards = ordered; 
   }
     
-  this.deal();
 }
