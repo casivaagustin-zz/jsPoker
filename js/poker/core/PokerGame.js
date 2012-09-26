@@ -1,3 +1,4 @@
+//This Object keeps the logic of the game.
 
 PokerGame = function() {
   this.phase = PokerGame.START;

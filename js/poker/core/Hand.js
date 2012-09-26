@@ -1,9 +1,15 @@
+/**
+ * This object holds the cards in the hand.
+ */ 
 Hand = function() {
   
-  this.deck = new Deck();
+  this.deck = new Deck();    //The Deck where the cards comes
   this.holded = new Array(); //Index of card to hold
   this.cards = new Array();  //Cards in the Hand 
-    
+ 
+  /**
+   * This create the first hand of cards
+   */
   this.deal = function() {
     this.cards = new Array();
     this.holded = new Array(); //Index of card to hold
@@ -13,6 +19,9 @@ Hand = function() {
     }
   }
     
+  /**
+   * This function changes the unholded cards with new cards
+   */
   this.redeal = function() {
     for(var i = 0; i < 5; i++) {
       if (this.isHolded(i) < 0) {
@@ -23,6 +32,7 @@ Hand = function() {
     
   /**
    * Checks if the cardNumber is holded
+   * @param Int the Card Number
    * @returns -1 on false, >= 0 on true, the number is 
    * the index of the value
    */
@@ -62,6 +72,7 @@ Hand = function() {
     
   /**
    * Orders the cards by number Value
+   * Needed to check games.
    */
   this.order = function() {
     var ordered = new Array();

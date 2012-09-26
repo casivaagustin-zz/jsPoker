@@ -1,7 +1,8 @@
 /**
- * Make a new Card
- * @param suite
- * @param value
+ * Makes a new Card Object
+ * 
+ * @param Int suite 
+ * @param Int value
  */
 Card = function(suite, value) {
     if (suite < 0 || suite >= 4) {
@@ -16,6 +17,9 @@ Card = function(suite, value) {
     this.value = value;
 }
 
+/**
+ * Checks if two cards are equals
+ */
 Card.prototype.isEqual = function(card) {
     if (card instanceof Card) {
         if (this.suite === card.suite

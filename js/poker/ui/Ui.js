@@ -1,7 +1,14 @@
-var PokerUi = {};
-PokerUi.controls = {};
-PokerUi.controls.cards = new Array();
+/**
+ * This file defines some methods for the UI
+ */
 
+var PokerUi = {};
+PokerUi.controls = {}; //Controls Holder to avoid the DOM search all the time.
+PokerUi.controls.cards = new Array(); //Cards DOM elements holder.
+
+/**
+ * Renders the current hand
+ */
 PokerUi.renderHand = function() {
     var cardIndex = 'back';
 
@@ -18,6 +25,9 @@ PokerUi.renderHand = function() {
     } 
 }
 
+/**
+ * Renders the Prize board
+ */
 PokerUi.renderBoard = function() {
     var betPrize = 0;
     Poker.Ui.controls.board.html('');
@@ -27,22 +37,34 @@ PokerUi.renderBoard = function() {
     }
 }
 
+/**
+ * Renders the player status, coins and bet
+ */
 PokerUi.renderPlayer = function() {
     Poker.Ui.controls.player.coins.text(Poker.Player.coins);
     Poker.Ui.controls.player.bet.text(Poker.Player.bet);
 }
 
+/**
+ * You are done men
+ */
 PokerUi.gameOver = function() {
     Poker.Ui.controls.prize.text('Game Over');
     Poker.Ui.controls.actions.hide();
 }
 
+/**
+ * Increase the bet
+ */
 PokerUi.actionBet = function() {
     Poker.Player.increaseBet();
     Poker.Ui.renderBoard();
     Poker.Ui.renderPlayer();
 }
 
+/**
+ * Deal and update the game status
+ */
 PokerUi.actionDeal = function() {
     Poker.Game.deal();
 
@@ -71,10 +93,14 @@ PokerUi.actionDeal = function() {
     Poker.Ui.renderPlayer();
 }
 
+/**
+ * Holds a card
+ */
 PokerUi.actionHold = function (event) {
     var card = $(event.srcElement);
     var cardIndex = card.attr('data');
-    if (card.hasClass('back')) {
+    if (Poker.Game.phase !== PokerGame.FIRST_DEAL) {
+        //You can't hold no groove if you ain't got no pocket
         return;
     }
     if (card.hasClass('holded')) {
@@ -87,27 +113,27 @@ PokerUi.actionHold = function (event) {
 }
 
 $(document).ready(function() {
-        $('.hand .card').each(function(index, card) {
-            PokerUi.controls.cards[index] = $(card);
-            PokerUi.controls.cards[index].live("click", PokerUi.actionHold);
-        });
+    $('.hand .card').each(function(index, card) {
+        PokerUi.controls.cards[index] = $(card);
+        PokerUi.controls.cards[index].live("click", PokerUi.actionHold);
+    });
 
-        PokerUi.controls.btnDeal = $('#btn_deal');
-        PokerUi.controls.btnDeal.click(PokerUi.actionDeal);
+    PokerUi.controls.btnDeal = $('#btn_deal');
+    PokerUi.controls.btnDeal.click(PokerUi.actionDeal);
 
-        PokerUi.controls.prize = $('.prize');
-        PokerUi.controls.board = $('ul.board');
+    PokerUi.controls.prize = $('.prize');
+    PokerUi.controls.board = $('ul.board');
 
-        PokerUi.controls.btnBet = $('#btn_bet');
-        PokerUi.controls.btnBet.click(PokerUi.actionBet);
+    PokerUi.controls.btnBet = $('#btn_bet');
+    PokerUi.controls.btnBet.click(PokerUi.actionBet);
 
-        PokerUi.controls.player = {};
-        PokerUi.controls.player.coins = $('.player .coins .points');
-        PokerUi.controls.player.bet = $('.player .bet .points');
+    PokerUi.controls.player = {};
+    PokerUi.controls.player.coins = $('.player .coins .points');
+    PokerUi.controls.player.bet = $('.player .bet .points');
 
-        PokerUi.controls.actions = $('.actions');
+    PokerUi.controls.actions = $('.actions');
 
-        Poker.Ui.renderBoard();
-        Poker.Ui.renderPlayer();
-        Poker.Ui.renderHand();
+    Poker.Ui.renderBoard();
+    Poker.Ui.renderPlayer();
+    Poker.Ui.renderHand();
 });
