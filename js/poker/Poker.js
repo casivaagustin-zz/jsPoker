@@ -1,8 +1,8 @@
-var Poker = {};
+/**
+ * Proxy object to wrapp the important elements
+ */
+
+var Poker = Poker || {};
 
 Poker.Game = new PokerGame();
 Poker.Player = Player;
-
-(function($) {
-              
-})(jQuery, document);

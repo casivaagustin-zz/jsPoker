@@ -3,9 +3,11 @@
  */
 
 var PokerUi = {};
-Poker.Ui = PokerUi;
 PokerUi.controls = {}; //Controls Holder to avoid the DOM search all the time.
 PokerUi.controls.cards = new Array(); //Cards DOM elements holder.
+
+var Poker = Poker || {};
+Poker.Ui = PokerUi;
 
 /**
  * Renders the current hand
