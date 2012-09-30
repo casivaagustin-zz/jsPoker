@@ -1,3 +1,16 @@
+requirejs.config({
+    //By default load any module IDs from js/lib
+    baseUrl: 'js/'
+});
+
+define([    
+     "vendor/jquery/jquery",
+     "vendor/bootstrap/bootstrap",
+     "poker/Poker",
+     "poker/core/PokerGame"
+    ], 
+function(_, __, Poker, PokerGame) {
+
 /**
  * This file defines some methods for the UI
  */
@@ -139,4 +152,8 @@ $(document).ready(function() {
     Poker.Ui.renderBoard();
     Poker.Ui.renderPlayer();
     Poker.Ui.renderHand();
+});
+
+return PokerUi;
+
 });
